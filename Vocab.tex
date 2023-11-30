@@ -1,0 +1,432 @@
+\documentclass[twoside,openany]{book}
+\date{}
+
+\usepackage{amssymb,amsmath,amsthm,verbatim,graphicx,bm,thmtools}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[babel]{csquotes}
+\MakeOuterQuote{"}
+\MakeAutoQuote{<}{>}
+\usepackage{marvosym}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{todonotes}
+
+
+%%%%%%%%%%%%%%%   Geometrie für Randbreite   %%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\geometry{
+  left=2cm,
+  right=2cm,
+  top=2cm,
+  bottom=3.2cm,
+  bindingoffset=0mm
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}% Clear header/footer
+
+\renewcommand{\headrulewidth}{0pt}%KeineLini
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{tabularx}
+%
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+%\usepgfplotslibrary{fillbetween}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\numberwithin{equation}{chapter} 
+
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\black}{\textcolor{black}}
+\newcommand{\dive}{\mathrm{div}\,}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\bbr}{\mathbb{R}}
+\newcommand{\bbn}{\mathbb{N}}
+\newcommand{\IK}{\mathbb{K}}
+\newcommand{\ID}{\mathbb{D}}
+\newcommand{\sss}{\scriptscriptstyle}
+\newcommand{\q}{^}
+\renewcommand{\emptyset}{\varnothing}
+\renewcommand{\subset}{\subseteq}
+\renewcommand{\supset}{\supseteq}
+\newcommand{\Pot}{\mathrm{Pot}}
+\newcommand{\CalA}{\mathcal{A}}
+\newcommand{\CalB}{\mathcal{B}}
+\newcommand{\defeq}{\coloneqq}
+
+\definecolor{newgray}{rgb}{0.97,0.97,1.00}
+
+\newcommand{\cbox}[2]{%
+  \[\colorbox{#1}{%
+      \addtolength{\linewidth}{-2\fboxsep}%
+      \addtolength{\linewidth}{-2\fboxrule}%
+      \begin{minipage}{\linewidth}% 
+      \vspace{-3.5mm}
+      \begin{align}#2\end{align}\notag%
+      \end{minipage}%
+    }\]%
+}
+
+\definecolor{newblue}{rgb}{0.0,0.0,0.30}
+\newtheoremstyle%
+ {theorem}%
+ {}{}%
+ {\itshape}
+ {}%
+ {\color{newblue}\bfseries}%
+ {:}%
+ { }{}
+
+\newcommand{\grid}[1][2]{%
+\vspace*{0.1cm}
+\noindent
+\begin{tikzpicture}
+	% Size of the grid
+	\def\xmin{0} \def\xmax{17.5} \def\ymin{0} \def\ymax{#1}
+	\draw [step=0.5cm,gray, ultra thin] (\xmin,\ymin) grid (\xmax,\ymax);
+	\draw [step=1cm,gray, thin] (\xmin,\ymin) grid (\xmax,\ymax);
+	\draw [step=5cm,gray,thick] (\xmin,\ymin) grid (\xmax,\ymax);
+\end{tikzpicture}
+}
+
+\begin{document}
+
+${}$\vspace{-2cm}
+
+\noindent
+\begin{minipage}[l]{0.35\textwidth}
+\noindent %Katholische Universit\"at Eichst\"att-Ingolstadt\\
+%Mathematisch-Geographische Fakult\"at\\
+\\ 
+Mathematical Institute for\\
+Machine Learning and Data Science
+\end{minipage}
+\begin{minipage}[l]{0.25\textwidth}
+\includegraphics[width=\textwidth]{mids_logo.png}
+\end{minipage}
+\begin{minipage}[r]{0.3\textwidth}
+ \hspace{1cm}\includegraphics[width=\textwidth]{KU_Logo}
+\end{minipage}
+
+\vspace*{-0.4cm}
+
+\begin{center}
+{\LARGE \textbf{The MIDS vocab test / book}}
+\end{center}
+
+\noindent
+\textbf{What is this about?}
+
+Learning mathematics is similar to learning a language.
+If when learning English, you would have to constantly look up the most basic words
+(e.g., "I", "you", etc.), you would never be able to have a conversation.
+Similarly, if you constantly have to look up the most basic mathematical
+concepts and theorems (e.g., the definition for the convergence of a sequence),
+you will not be able to get much out of a lecture, or to reasonably solve exercises.
+
+Thus, \emph{you have to know the most important concepts and theorems \textbf{by heart}}.
+The following is an attempt to identify these most important things.
+
+It is not enough to \emph{only} know the following facts,
+but they provide a basis on which you can further build.
+
+\noindent\rule{\textwidth}{1pt}\\
+
+
+
+\begin{center}
+{\LARGE \textbf{The absolute basics}}
+\end{center}
+
+\noindent
+Let $A,B$ be sets.
+What does $A \subset B$ mean (definition)?
+
+\grid
+
+\medskip{}
+
+\noindent
+When is a function $f : X \to Y$ called \textbf{injective}?
+
+\grid
+
+\medskip{}
+
+\noindent
+When is a function $f : X \to Y$ called \textbf{surjective}?
+
+\grid
+
+\medskip{}
+
+\noindent
+Let $f : X \to Y$.
+Given $M \subset Y$, what is the definition of the \textbf{inverse image} $f^{-1}(M)$?
+
+\grid
+
+\medskip{}
+
+\noindent
+How can one express $(A \cup B)^c$ without using the "$\cup$" operation?
+
+\grid
+
+\medskip{}
+
+\noindent
+What is the \textbf{negation} of the statement
+\[
+  \forall \, x \in M : A(x),
+\]
+where $A(x)$ is some statement depending on $x$?
+
+\grid
+
+\medskip{}
+
+\noindent
+How does one prove the statement $A \Rightarrow B$ using
+\textbf{contraposition}?
+
+\grid
+
+
+\medskip{}
+
+\noindent
+How is the \textbf{composition} $f \circ g$ of two functions defined?
+
+\grid
+
+
+%\vspace*{0.1cm}
+%\noindent
+%\begin{tikzpicture}
+%	% Size of the grid
+%	\def\xmin{0} \def\xmax{17.5} \def\ymin{0} \def\ymax{2}
+%	\draw [step=0.5cm,gray, ultra thin] (\xmin,\ymin) grid (\xmax,\ymax);
+%	\draw [step=1cm,gray, thin] (\xmin,\ymin) grid (\xmax,\ymax);
+%	\draw [step=5cm,gray,thick] (\xmin,\ymin) grid (\xmax,\ymax);
+%\end{tikzpicture}
+
+\noindent\rule{\textwidth}{0.5pt}\\
+
+\begin{center}
+{\LARGE \textbf{Analysis I}}
+\end{center}
+
+\noindent
+What is the relation between $|x + y|$ and $|x| + |y|$ for real numbers $x,y$?
+
+\grid
+
+\medskip{}
+
+\noindent
+Let $M \subset \R$.
+What is the definition of the \textbf{infimum} and the \textbf{supremum} of $M$?
+
+\grid
+
+\medskip{}
+
+\noindent
+Let $(x_n)_{n \in \N}$ be a sequence of real numbers, and let $x \in \R$.
+What is the definition of $x_n \xrightarrow[n \to \infty]{} x$?
+
+\grid
+
+\medskip{}
+
+\noindent
+If $x_n \to x$ and $y_n \to y$, what can you say about $(x_n + y_n)_{n \in \N}$
+and $(x_n \cdot y_n)_{n \in \N}$?
+
+\grid
+
+\medskip{}
+
+\noindent
+What does the \textbf{squeeze theorem} (or \textbf{sandwich theorem}) for sequences say?
+
+\grid
+
+\medskip{}
+
+\noindent
+When is a sequence $(x_n)_{n \in \N}$ called a \textbf{Cauchy sequence} (definition)?
+What can you say about the convergence of a Cauchy sequence?
+
+\grid
+
+\medskip{}
+
+\noindent
+Let $(x_n)_{n \in \N}$ be a sequence of real numbers.
+What does it mean for the \textbf{series} $\sum_{n=1}^\infty x_n$ to converge?
+What does it mean for the \textbf{series} $\sum_{n=1}^\infty x_n$ to converge \emph{absolutely}?
+
+\grid[3]
+
+
+\medskip{}
+
+\noindent
+If the series $\sum_{n=1}^\infty x_n$ converges, what can you say about the convergence
+of the sequence $(x_n)_{n \in \N}$?
+
+\grid[3]
+
+
+\medskip{}
+
+\noindent
+What is the \textbf{geometric series}?
+What can you say about its convergence and limit?
+
+\grid[3]
+
+\medskip{}
+
+\noindent
+What does the \textbf{root test} say?
+
+\grid
+
+\medskip{}
+
+\noindent
+What does the \textbf{ratio test} say?
+
+\grid
+
+\medskip{}
+
+\noindent
+Let $M \subset \R$ and $f : M \to \R$ a function, and $x_0 \in M$.
+What does it mean for $f$ to be \textbf{continuous} at $x_0$ (formal definition)?
+
+\grid
+
+
+\medskip{}
+
+\noindent
+Let $M \subset \R$ and $f : M \to \R$ a function, and $x_0 \in M$.
+How can one characterize the continuity of $f$ at $x_0$ using \emph{sequences}?
+
+\grid
+
+\medskip{}
+
+\noindent
+What does the \textbf{intermediate value theorem} say?
+
+\grid
+
+\medskip{}
+
+\noindent
+What does the \textbf{extreme value theorem} say?
+
+\grid
+
+\medskip{}
+
+\noindent
+Let $I \subset \R$ an interval and $f : I \to \R$.
+What does it mean for $f$ to be \textbf{increasing/decreasing/strictly increasing}?
+
+\grid
+
+\medskip{}
+
+\noindent
+Let $I \subset \R$ an interval and $f : I \to \R$, as well as $x_0 \in I$.
+What does it mean for $f$ to be \textbf{differentiable} at $x_0$?
+How is the \textbf{derivative} of $f$ at $x_0$ defined?
+
+\grid
+
+\medskip{}
+
+\noindent
+What do the \textbf{chain rule}, the \textbf{product rule}, and the \textbf{quotient rule} say?
+
+\grid[4]
+
+\medskip{}
+
+\noindent
+What does the \textbf{mean value theorem} say?
+
+\grid
+
+\medskip{}
+
+\noindent
+Let $I \subset \R$ an interval and let $f : I \to \R$ be differentiable.
+How can one check if $f$ is increasing?
+
+\grid
+
+
+\medskip{}
+
+\noindent
+What are the derivatives of $f(x) = x^n$ and of the functions
+$\sin, \cos, \exp$, and $\ln$ (the natural logarithm)?
+
+\grid[3]
+
+\medskip{}
+
+\noindent
+Let $I \subset \R$ an interval and $f : I \to \R$, as well as $x_0 \in I$.
+What does it mean for $f$ to have a \textbf{local/global maximum} at $x_0$?
+
+\grid[3]
+
+\medskip{}
+
+\noindent
+Let $I \subset \R$ an interval and $f : I \to \R$, and let $x_0$ be an \emph{interior point} of $I$.
+If $f$ is differentiable at $x_0$ and has a local maximum at $x_0$,
+what can you say about $f'(x_0)$?
+
+\grid
+
+\todo[inline]{Add some stuff about integration?!}
+
+\noindent\rule{\textwidth}{0.5pt}\\
+
+\begin{center}
+{\LARGE \textbf{Linear Algebra I}}
+\end{center}
+
+\todo[inline]{Write this!}
+
+\noindent\rule{\textwidth}{0.5pt}
+
+
+\end{document}
+
